@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Multiplication Table</title>
+</head>
+<body>
+	<form>
+		<div align="center">
+   		<h1>Multiplivation Table</h1>
+   		<input type="text" name="num" id="num" min="1" max="20" placeholder="cols">
+	   	</div>
+	   	<div align="center">
+	   		<input type="text" name="rows" id="rows" min="1" max="20" placeholder="rows">
+	   	</div>
+	   	<br>
+	   	<div align="center">
+	   		<input type="button" name="output" id = "output" onclick="fun()" value="click here!">
+	   	</div>
+	   	<div id="result">
+
+	   	</div>
+    </form>
+    <script>
+    	function fun()
+    	{
+    		alert("tq")
+    		var num1 = parseInt(document.getElementById("num").value);
+    		var rows1 = parseInt(document.getElementById("rows").value);
+    		var res=document.getElementById("result");
+			res.innerHTML=" ";
+			for(var i = 1 ; i <= num1 ; i++)
+			{
+				for(var j = 1 ; j <= rows1 ; j++)
+				{
+					res.innerHTML+= i + "*" + j + "=" + (i*j) + " "+ "<br>"
+				}
+			}
+
+		}
+    </script>
+</body>
+</html>

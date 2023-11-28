@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form validation</title>
+</head>
+<body bgcolor = "lightblue">
+	<h1 align="center" >Form Validation</h1>
+	<form onsubmit="return validate();" action="index.html" >
+		<table width = "400" height = "250" align="center" bgcolor="lightgreen">
+			<th colspan="2" style="font-size:2vw" >User Login </th>
+			<tr>
+				<td>Name </td>
+				<td><input type="text"  id="Name" placeholder="Enter Name">
+			</tr>			
+			<tr>
+				<td>Age</td>
+				<td><input type="text" id="Age" placeholder="Enter Age"></td>
+			</tr>
+			<tr>
+				<td>Gender</td>
+				<td><input type="radio" name="Gender" id="Male" value="Female">Female
+				  	<input type="radio" name="Gender" id="Female" value="Male">Male</td>
+			</tr>
+			<tr>
+				<td>Languages</td>
+				<td><input type="checkbox" name="Languages" id="C" value="C">C
+					<input type="checkbox" name="Languages" id="c_plus" value="C++">C++
+				    <input type="checkbox" name="Languages" id="Python" value="Python">Python
+					<input type="checkbox" name="Languages" id="Null" value="Null">Null</td>
+			</tr>
+			<tr>
+				<td>Department</td>
+				<td><select id="dept">
+				    <option name = "departm" value="">Choose!</option>
+				    <option name = "departm" value="ECE">ECE</option>
+				    <option name = "departm" value="EEE">EEE</option>
+				    <option name = "departm" value="MECH">MECH</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td>Phone No</td>
+				<td><input type="text" id="Phone No" name="Phone No" placeholder="Phone No"></td>
+			</tr>
+	        <tr>
+	        	<td>Address</td>
+	        	<td><textarea id="Address" rows="5" cols="21"></textarea></td>
+	        </tr>
+	        <tr>
+	        	<td>Email</td>
+	        	<td><input type="text" name="Email" id="Email"  placeholder="Enter Email"></td>
+	        </tr>		
+        	<tr>
+				<td>Password</td>
+				<td><input type="Password" id="Password" placeholder="Enter Password"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" value="Submit" name="sub"></td>
+			</tr>
+		</table>
+	</form>
+	<script>
+		function validate()
+		{
+			var name1 = document.getElementById("Name").value;
+			var Alphabets_pattern = /^[a-zA-Z]+$/;
+			var age1 = document.getElementById("Age").value;
+			var Gender_f = document.getElementById("Female");
+			var Gender_m = document.getElementById("Male");
+			var check_c = document.getElementById("C");
+			var check_c_plus = document.getElementById("c_plus");
+			var check_python = document.getElementById("Python");
+			var check_na = document.getElementById("Null");
+			var select1 = document.getElementById("Choose");
+			var Phone_No1 = document.getElementById("Phone No").value;
+			var phone_pattern=/^[7-9]\d{9}$/;
+			var Email1 = document.getElementById("Email").value;
+            var Email_pattern = /^([A-Za-z0-9_\-\.])+\@([gmail|GMAIL])+\.(com)$/;
+            var Password1 = document.getElementById("Password").value;
+			var dept = document.getElementById("dept");
+        
+//NAME VALIDATION
+			if(name1 == "")
+			{
+				alert("Please Fill the Name!");
+				//document.form.Name.focus();
+				return false;
+			}
+			if(name1.match(Alphabets_pattern))
+				true;
+				else
+				{
+					alert("Enter Alphabets only!");
+					//document.form.Name.value="";
+					//document.form.Name.focus();
+					return false;
+				}
+//AGE VALIDATION
+			if(age1 == "")
+			{
+				alert("Please Fill the age!");
+				//document.form.Name.focus();
+				return false;
+			}
+			if (isNaN(age1)||age1<1||age1>100)
+			{ 
+			    alert("The age must be a number between 1 and 100");
+			    return false;
+			}	
+//GENDER VALIDATION
+ 			if(Gender_f.checked==false && Gender_m.checked==false)
+ 			{
+ 				alert("You Must select any one Gender!");
+ 				return false;
+ 			}
+//Languages 
+			if(check_c.checked==false && 
+			   check_c_plus.checked==false && 
+			   check_python.checked == false && 
+			   check_na.checked==false)
+ 			{
+ 				alert("You Must select any one Language!");
+ 				return false;
+ 			}
+//departm
+			if (dept.value == "") 
+			{
+            alert("Please select any one Department!");
+            return false;
+        	}
+//PHONE NUMBER VALIDATION		
+			if(Phone_No1.match(phone_pattern))
+				true;
+				else
+				{
+					alert("Enter Valid number !")
+					//document.form.Name.value="";
+					//document.form.Name.focus();
+					return false;
+				}
+//ADDRESS   
+			if(Address == "")
+			{
+				alert("Please Fill the Address!");
+				return false;
+			}
+
+//EMAIL VALIDATION
+			if(Email1.match(Email_pattern))
+				true;
+				else
+				{
+					alert("Enter Valid Email id !")
+					//document.form.Name.value="";
+					//document.form.Name.focus();
+					return false;
+				}	
+//PASSWORD VALIDATION
+			if(Password1.length<7)
+			{
+				alert("Enter Atleast six Charecters!");
+				//document.form.Name.value="";
+				//document.form.Name.focus();
+				return false;
+			}
+			if(Password1.search(/[0-9]/)==-1)
+			{
+				alert("Enter Atleast 1 numeric value!");
+				//document.form.Name.value="";
+				//document.form.Name.focus();
+				return false;
+			}             
+			if(Password1.search(/[a-z]/)==-1)
+			{
+				alert("Enter Atleast 1 small latter !");
+				//document.form.Name.value="";
+				//document.form.Name.focus();
+				return false;
+			}
+			if(Password1.search(/[A-Z]/)==-1) 
+			{
+				alert("Enter Atleast 1 Capital latter !");
+				//document.form.Name.value="";
+				//document.form.Name.focus();
+				return false;
+			}
+			if(Password1.search( /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/) == -1) 
+			{
+				alert("Enter Atleast 1 Special Charecter !");
+				//document.form.Name.value="";
+				//document.form.Name.focus();
+				return false;
+			}
+			alert("Thanking You")
+			return true;
+		}
+	</script>
+</body>
+</html>
+<!-- if(!/^\d{4}-\d{2}-\d{2}$/ -->

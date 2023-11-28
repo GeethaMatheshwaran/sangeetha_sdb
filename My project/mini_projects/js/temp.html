@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form validation2</title>
+	<style>
+		#nameerror{
+			color:red;
+		}
+	</style>
+</head>
+<body>
+	<h1 align="center">Form Validation</h1>
+	<form method="post" action="index.html">
+		<table align="center" bgcolor="lightgreen">
+			<th colspan="2">User Login</th>
+			<tr>
+				<td>User Name </td>
+				<td><input type="text"  id="Name" placeholder="Enter Name">
+			</tr>			
+			<tr>
+				<td>Password</td>
+				<td><input type="Password" id="pwd" placeholder="Enter Password"></td>
+			</tr>
+			<tr>
+	    	<td colspan="3"  align="center"><input type="button" onclick="fun()" value="Submit" ></td>
+			</tr>
+		</table>
+	</form>
+	<script>
+		var d;
+function fun(){
+d=document.getElementById("name").value;
+if(d=="geeth")
+{
+	document.getElementById("nameerror").value="Error..."
+}
+}
+	</script>
+</body>
+</html>

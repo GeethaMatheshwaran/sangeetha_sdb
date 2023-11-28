@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AGE CALC</title>
+</head>
+<body align = "center">
+	<form>
+		<h1 align= "center">Age Calculator</h1>
+			DOB :<input type="date" name="input" id="input"><br><br>
+			<input type="button" onclick="return fun()" value="Click Here!"><br><br>
+			<span id = "result" style="color:purple"> </span>  
+	</form>
+	<script type="text/javascript">
+		function fun()
+		{
+			var dob = document.getElementById("input").value
+			var input = new Date(dob); 
+			const months = [31,28,31,30,31,30,31,31,30,31,30,31];
+			let today = new Date();
+			var input_date = input.getDate();
+			var input_month=input.getMonth()+1;
+        	var input_year = input.getFullYear();
+        	var currentYear = today.getFullYear();
+    		var currentMonth = today.getMonth()+1;
+    		var currentDate = today.getDate();
+    		var birthYear,birthMonth,birthDate;
+
+    		if(dob==null || dob=='')
+			{  
+      			alert("Choose a date please!");    
+      			return false;   
+			}
+//DOB check
+    		if  (input_year > currentYear ||
+        		( input_month > currentMonth && input_year == currentYear) || 
+        		(input_date > currentDate && input_month == currentMonth && input_year == currentYear))
+    		{
+        		alert("Not Born Yet");
+        		return false;
+    		}
+//LEAP YEAR CHECK
+    		if(currentYear % 4 == 0 || (currentYear % 100 == 0 && currentYear % 400 == 0))
+    		{
+        		months[1] = 29;
+   			}
+	    		else
+	    		{
+	        		months[1] = 28;
+				}
+//YEAR CHECK
+			birthYear = currentYear - input_year;
+
+//MONTH CHECK
+		    if(currentMonth >= input_month)
+		    {
+		        birthMonth = currentMonth - input_month;
+		    }
+			    else
+			    {
+			    	birthYear--;
+			        birthMonth = 12 + currentMonth - input_month;
+			    }
+
+//DATE CHECK
+		    if(currentDate >= input_date)
+		    {
+		        birthDate = currentDate - input_date;
+		    }
+			    else
+			    {
+			    	birthMonth--;
+			        let days = months[currentMonth - 2];
+			        birthDate = days + currentDate - input_date;
+			        if(birthMonth < 0){
+			            birthMonth = 11;
+			            birthYear--;
+			        }
+		    }
+//OUTPUT
+		 	var result = birthYear + " Years & " +birthMonth+ " Months & " + birthDate + " Days" ;
+	  		document.getElementById("result").innerHTML= result.toUpperCase() ;
+		}
+	</script>
+</body>
+</html>

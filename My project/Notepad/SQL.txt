@@ -1,0 +1,34 @@
+SELECT * FROM `student` WHERE J_DATE ='2022-10-01'
+
+SELECT * FROM `student` WHERE NAME  LIKE 'S%'
+
+SELECT * FROM `student` WHERE NAME LIKE '%A'
+
+SELECT * FROM `student` WHERE NAME LIKE '_A%'
+
+SELECT * FROM `student` WHERE NAME ="SANGEETHA" AND CGPA < 9.2
+
+SELECT * FROM `student` WHERE NAME !="SANGEETHA"
+
+SELECT * FROM `student` WHERE AGE IN (21)
+
+UPDATE `student` SET AGE = 22 WHERE NAME="SANGEETHA"
+
+SELECT FIND_IN_SET("q", "s,q,l");
+
+SELECT STUDENT.ID , department.DEPARTMENT FROM department INNER JOIN student ON department.D_ID = student.D_ID
+
+SELECT students.S_ID , department.DEPARTMENT FROM department LEFT JOIN students ON department.D_ID = students.D_ID
+
+SELECT C_CITY FROM customer UNION ALL SELECT S_CITY FROM suppliers
+
+SELECT C_CITY FROM customer UNION SELECT S_CITY FROM suppliers
+
+SELECT customer.C_NO ,customer.C_NAME FROM customer INNER JOIN suppliers ON customer.C_NO=suppliers.S_NO
+
+SELECT customer.C_NO ,customer.C_NAME, suppliers.S_NAME FROM customer INNER JOIN suppliers ON customer.C_NO=suppliers.S_NO
+
+
+
+
+

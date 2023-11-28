@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Slider</title>
+    <style >
+        .resize
+        {
+          height: 380px;
+          width: 600px;
+        }
+    </style>
+</head>
+<body align = "center">
+  <h1 align="center">7  Wonders Of The World</h1><br><br>
+      <img id="img" class="img-responsive resize" >
+  <script>
+    var slideimg = ["../images/img1.jpg",
+                    "../images/img2.jpg",
+                    "../images/img3.jpg",
+                    "../images/img4.jpg",
+                    "../images/img5.jpg",
+                    "../images/img6.jpg",
+                    "../images/img7.jpg"];
+    var i = 0 ;
+    var duration = 1000;
+
+    function fun()
+    {
+      document.getElementById("img").src = slideimg[i];
+      i++;
+
+      if(i == slideimg.length)
+      {
+        i = 0;
+      }
+      setTimeout("fun()",duration);
+    }
+    fun();
+  </script>
+</body>
+</html>                      

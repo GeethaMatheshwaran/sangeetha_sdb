@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+</head>
+<body>
+	<h1 align="center" >Function</h1>
+	<form>
+		<table width = "600" height = "350" align="center">
+			<tr>
+				<td>Input</td>
+				<td><input type="text" name="Input" id="Input"></td>
+			</tr>
+			<tr>
+				<td>Split</td>
+				<td><input type="text" name="Split" id="Split"></td>
+			</tr>
+			<tr>
+				<td>Find</td>
+				<td><input type="text" name="Find" id="Find"></td>
+			</tr>
+			<tr>
+				<td>Replace</td>
+				<td><input type="text" name="Replace" id="Replace"></td>
+			</tr>
+			<tr>
+				<td>Index</td>
+				<td><input type="text" name="Index" id="Index"></td>
+			</tr>
+			<tr>
+				<td>Output</td>
+				<td><input type="text" name="Output" id="Output"></td>
+			</tr>
+			<tr>
+				<td ><input type="button" onclick="return split1()" value="Split"></td>
+ 	 			<td ><input type="button" onclick="return Replace1()" value="Replace"></td>
+
+			</tr>
+			<tr>
+				<td ><input type="button" onclick="return Index1()" value="Index"></td>
+				<td ><input type="button" onclick="return Count1()" value="Count"></td>
+			</tr>
+			<tr>
+				<td ><input type="button" onclick="return Upper1()" value="Upper"></td>
+				<td ><input type="button" onclick="return Lower1()" value="Lower"></td>
+			</tr>
+			<tr colspan = "2">
+				<td ><input type="button" onclick="return Reverse1()" value="Reverse"></td>
+			</tr>
+		</table>
+		<p id = "res"></p>
+
+	</form>
+	<script>
+//SPLIT
+		function split1()
+		{
+			var Input = document.getElementById("Input").value;
+			if(Input == "")
+			{
+				alert("Enter Input value");
+				return false;
+			}
+		    var Split = document.getElementById("Split").value;
+		    
+			if(Split == "")
+			{
+				alert("Please Fill split Value");
+				return false;
+			}
+		    var split1_result = Input.split(Split);
+			document.getElementById("Output").value = split1_result;					
+
+		}
+//REPLACE
+		function Replace1()
+		{	
+		    var Find = document.getElementById("Find").value;
+		    var Replace = document.getElementById("Replace").value;
+			var Input = document.getElementById("Input").value;
+			if(Input == "")
+			{
+				alert("Enter Input value");
+				return false;
+			}
+			if(Find == "")
+			{
+				alert("Please Fill Find Value");
+				return false;
+			}
+			if(Replace == "")
+			{
+				alert("Please Fill Replace Value");
+				return false;
+			}
+			document.getElementById("Output").value = Input.replaceAll(Find,Replace);					
+		}
+		function Index1()
+		{
+			var Index = document.getElementById("Index").value;
+			var Input = document.getElementById("Input").value;
+			if(Input == "")
+			{
+				alert("Enter Input value");
+				return false;
+			}
+			if(Index == "")
+			{
+				alert("Please Fill Index Value");
+				return false;
+			}
+			document.getElementById("Output").value = Input.indexOf(Index);				
+		}
+		function Count1()
+		{
+			var Input = document.getElementById("Input").value;
+			if(Input == "")
+			{
+				alert("Enter Input value");
+				return false;
+			}
+			document.getElementById("Output").value = Input.length;				
+		}
+		function Upper1()
+		{
+			var Input = document.getElementById("Input").value;
+			if(Input == "")
+			{
+				alert("Enter Input value");
+				return false;
+			}
+			document.getElementById("Output").value = Input.toUpperCase();				
+		}
+		function Lower1()
+		{
+			var Input = document.getElementById("Input").value;
+			if(Input == "")
+			{
+				alert("Enter Input value");
+				return false;
+			}
+			document.getElementById("Output").value = Input.toLowerCase();				
+		}
+		function Reverse1()
+		{
+			var Input = document.getElementById("Input").value;
+			var temp = Input.split("").reverse().join("");
+
+			if(Input == "")
+			{
+				alert("Enter Input value");
+				return false;
+			}
+			document.getElementById("Output").value = temp;				
+		}
+
+	</script>
+</body>
+</html>

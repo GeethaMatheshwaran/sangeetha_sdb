@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Num to Char</title>
+</head>
+<body align = "center">
+	<form>
+      <h1>Number To Word Converter</h1>
+		<input type="text" id="Num" onkeyup="fun()"><br>
+      <p id = "res"></p>
+	</form>
+   <script>
+      function fun()
+      {
+         var Num = document.getElementById("Num").value;
+         var len = Num.length;
+         var numbers_pattern = /^\d+$/           // /^[0-9]+$/;
+         if(Num == "")
+         {
+            alert("Please Enter the Number!");
+            return false;
+         }
+
+         if(Num.match(numbers_pattern))
+            true;
+            else
+            {
+               alert("Enter Numbers only!");
+               return false;
+            }
+         if (len > 9)
+         {
+            alert("Overflow!")
+            return false;
+         }
+         if(Num <=0)
+         {
+            document.getElementById("res").innerHTML = "ZERO";
+            return false;
+         }
+         document.getElementById("res").innerHTML = towords(document.getElementById("Num").value);
+      }
+		function towords(Num)
+		{
+         var a = ['','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ','eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen '];
+         var b = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety'];
+
+         var n = ('000000000' + Num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+         //00,00,00,0,00
+         var str = "";
+         str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'crore ' : '';
+         str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'lakh ' : '';
+         str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'thousand ' : '';
+         str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'hundred ' : '';
+         str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + 'only ' : '';
+         return str.toUpperCase();
+      }
+	</script>  
+</body>
+</html>

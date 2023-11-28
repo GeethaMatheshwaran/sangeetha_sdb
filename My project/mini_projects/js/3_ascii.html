@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Char to ASCII</title>
+</head>
+<body align = "center">
+	<form>
+		<h1>Charecter to ASCII Code</h1>
+		<input type="text" id="ch"><br><br>
+ 		<input type="submit" onclick="fun()" value="Click Here!"><br>
+	</form>
+   	<script>
+   		function fun()
+   		{
+   			var ch =(document.getElementById("ch").value);
+            var Alphabets_pattern = /^[a-zA-Z]+$/;
+            if(ch == "")
+            {
+               alert("Enter input Value");
+               return false;
+            }
+
+            if(ch.match(Alphabets_pattern))
+               true;
+            else
+            {
+               alert("Enter charecters only!");
+               //document.form.Name.value="";
+               //document.form.Name.focus();
+               return false;
+            }
+   			var length = ch.length;
+   			for(let i = 0 ; i < length ; i++)
+   			{
+   			var result = ch.charCodeAt(i);
+   	 		document.write(ch[i]," - ASCII Code is ",result,"<br>")
+   	 		//document.write("ASCII value of",ch[i],result,"<br>")
+   			}
+   		}
+   	 	
+   	</script>
+</body>
+</html>

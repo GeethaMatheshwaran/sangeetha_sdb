@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MUL_TABLE_3</title>
+	<script>
+		function fun()
+		{
+			var cols = document.getElementById("n1").value;
+			var rows = document.getElementById("n2").value;
+			var numbers_pattern = /^\d+$/           // /^[0-9]+$/;
+			if(cols == "")
+			{
+				alert("Enter cols Value");
+				return false;
+			}
+			if(cols.match(numbers_pattern))
+				true;
+				else
+				{
+					alert("Please enter valid columns")
+					return false;
+				}
+			if(rows == "")
+			{
+				alert("Enter rows Value");
+				return false;
+			}
+			if(rows.match(numbers_pattern))
+				true;
+				else
+				{
+					alert("Please enter valid rows")
+					return false;
+				}
+		    document.write('<table border="1" cellspacing = "4">');
+		    for(var k = 1 ; k <= cols ; k++)
+			{ 
+				document.write("<th>" + k + " </th>");
+			}
+	  		for(var i = 1 ; i <= rows ; i++)
+			{
+				document.write("<tr>");
+				for(var j = 1 ; j <= cols ; j++)
+				{
+					document.write("<td>" + i + " x " + j + " = " + i*j + "</td>");
+				}
+				document.write("</tr>");
+			}
+			document.write("</table>");
+		}
+	</script>
+</head>
+<body align="center">
+	<h1>Multiplication Table</h1>
+ 	<input type="text" name="n1" id=n1 placeholder="Enter Cols"><br>
+ 	<input type="text" name="n2" id="n2" placeholder="Enter Rows"><br><br>
+ 	<input type="submit" onclick=" return fun()" value="Click Here!"><br>
+</body>
+</html>

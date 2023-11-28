@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Split Function</title>
+</head>
+<body>
+	<form>
+		<table width = "400" height = "250" align="center">
+			<th colspan="2" style="font-size:2vw" >Split Function</th>
+			<tr>
+				<td>Input </td>
+				<td><input type="text" id="input" onkeyup="fun()" placeholder="Enter input">
+			</tr>			
+			
+			<tr>
+				<td>Alphabetical</td>
+				<td><input type="text" id="Alphabetical"></td>
+
+			</tr>
+			<tr>
+				<td>Numeric</td>
+				<td><input type="text" id="Numeric"></td>
+
+			</tr>
+			<tr>
+				<td>Special Char</td>
+				<td><input type="text" id="Special_Char"></td>
+
+			</tr>
+		</table>
+	<form>
+	<script>
+		function fun()
+		{
+			//alert("tq")
+			var input =document.getElementById("input").value;
+			var len = input.length
+			var Alphabets_pattern = /^[a-zA-Z]+$/;    //'/^[a-z]+$/i' .
+			var numbers_pattern = /^[0-9]+$/;
+			var spl_pattern = /^[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]+$/;
+			var alpha=""    
+			var num=""
+			var spl=""
+			//alert(len)
+			if(input == "")
+			{
+				alert("Enter Value");
+				return false;
+			}
+			for(var i =0 ; i < len ; i++)
+			{
+				if(input[i].match(Alphabets_pattern))
+					alpha = input[i]
+					else
+					{
+						alpha=""
+					}
+				if(input[i].match(numbers_pattern))
+					num = input[i]
+					else
+					{
+						num=""
+					}
+				if(input[i].match(spl_pattern))
+					spl = input[i]
+					else
+					{
+						spl=""
+					}
+			}
+			document.getElementById("Alphabetical").value += alpha;					
+			document.getElementById("Numeric").value += num;
+			document.getElementById("Special_Char").value += spl;
+		}
+	</script>
+</body>
+</html>
